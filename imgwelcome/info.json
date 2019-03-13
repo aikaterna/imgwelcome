@@ -1,0 +1,13 @@
+{
+	"author": [
+		"aikaterna"
+	],
+	"description": "Imgwelcome for Red v3.",
+    "install_msg": "",
+    "min_python_version": [3, 7, 0],
+    "permissions" : [
+		"manage_messages"
+	],
+	"short": "Imgwelcome for Red v3.",
+	"type": "COG"
+}
