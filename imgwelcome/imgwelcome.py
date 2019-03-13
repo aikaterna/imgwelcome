@@ -22,7 +22,7 @@ _B=None
 _A=True
 import asyncio,aiohttp,base64,datetime,discord,os,re
 from redbot.core import Config,commands,checks
-from redbot.core.data_manager import bundled_data_path,cog_data_path
+from redbot.core.data_manager import bundled_data_path
 from io import BytesIO
 from PIL import Image,ImageFont,ImageOps,ImageDraw
 BaseCog=getattr(commands,'Cog',object)
