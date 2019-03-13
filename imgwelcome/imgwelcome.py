@@ -80,7 +80,7 @@ class ImgWelcome(BaseCog):
 		if D:await B.send('The profile border color has been set.')
 	@checks.admin_or_permissions(manage_guild=_A)
 	@imgwelcome.command(name='channel')
-	async def imgwelcome_channel(self,ctx,channel):
+	async def imgwelcome_channel(self,ctx,channel:discord.TextChannel):
 		'Set the announcement channel.';B=channel;A=ctx
 		if not A.guild.me.permissions_in(B).send_messages:return await A.send('No permissions to speak in that channel.')
 		await self.config.guild(A.guild).CHANNEL.set(B.id);await B.send('This channel will be used for welcome messages.')
@@ -97,7 +97,7 @@ class ImgWelcome(BaseCog):
 		if C:await A.send('The text outline has been set.')
 	@checks.admin_or_permissions(manage_guild=_A)
 	@imgwelcome.command(name='preview')
-	async def imgwelcome_preview(self,ctx,member=_B,number=_B):
+	async def imgwelcome_preview(self,ctx,member:discord.Member=_B,number=_B):
 		'Show a welcome image with the current settings.';A=member;C=ctx.message.channel
 		if A is _B:A=ctx.author
 		B=self.bot.get_channel(C.id);D=await self._create_welcome(A,A.avatar_url,number)
