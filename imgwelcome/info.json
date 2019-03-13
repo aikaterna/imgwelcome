@@ -3,7 +3,7 @@
 		"aikaterna"
 	],
 	"description": "Imgwelcome for Red v3.",
-    "install_msg": "",
+    "install_msg": "Thanks for installing.",
     "min_python_version": [3, 7, 0],
     "permissions" : [
 		"manage_messages"
