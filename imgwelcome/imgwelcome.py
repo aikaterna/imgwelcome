@@ -126,7 +126,10 @@ class ImgWelcome(commands.Cog):
 	async def imgwelcome_upload(self,ctx,default=_B):
 		'Upload a background through Discord. 500px x 150px.\n        This must be an image file and not a url.';B=self;A=ctx;await A.send('Please send the file to use as a background. File must be 500px x 150px.')
 		def F(m):return m.author==A.author
-		try:G=await A.bot.wait_for('message',timeout=30.0,check=F);H=G.attachments[0].url;C=_A
+		try:
+			G=await A.bot.wait_for('message',timeout=30.0,check=F)
+			try:H=G.attachments[0].url;C=_A
+			except IndexError:return await A.send('No image attachment in the last message. Try again later.')
 		except asyncio.TimeoutError:C=_C;return await A.send('Try again later.')
 		D=Image
 		if C:
