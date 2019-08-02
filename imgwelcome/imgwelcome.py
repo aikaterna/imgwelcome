@@ -160,18 +160,18 @@ class ImgWelcome(commands.Cog):
 		"Toggle text announcement when a new user's account is <7d old.";A=ctx;B=await self.config.guild(A.guild).ACCOUNT_WARNINGS();await self.config.guild(A.guild).ACCOUNT_WARNINGS.set(not B)
 		if not B:await A.send('I will now announce when new accounts join.')
 		else:await A.send('I will no longer announce when new accounts join.')
-	@imgwelcome.group(name='font',autohelp=_C)
+	@imgwelcome.group(name='font',invoke_without_command=_A)
 	@checks.mod_or_permissions(administrator=_A)
 	async def imgwelcome_font(self,ctx):
 		'Font settings.';C=self;B=ctx
-		if str(B.invoked_subcommand)=='imgwelcome font':await B.send_help();A=await C.config.guild(B.guild).all();D=A[_E];E=A[_J];F=A[_L];D=await C._font_file(D);E=await C._font_file(E);F=await C._font_file(F);G='Current Font Settings:\n';G+=f"\n**Welcome Font**: {F[0]}.{F[1]} ({A['WELCOME_FONT_SIZE']}pt font)\n**Username Font**: {D[0]}.{D[1]} ({A['NAME_FONT_LG']}/{A['NAME_FONT_MED']}/{A['NAME_FONT_SM']}/{A['NAME_FONT_XSM']}pt font)\n**Member Position Font**: {E[0]}.{E[1]} ({A['SERVER_FONT_SIZE']}pt font)\n";H=discord.Embed(colour=await B.embed_colour(),description=G);await B.send(embed=H)
+		await B.send_help();A=await C.config.guild(B.guild).all();D=A[_E];E=A[_J];F=A[_L];D=await C._font_file(D);E=await C._font_file(E);F=await C._font_file(F);G='Current Font Settings:\n';G+=f"\n**Welcome Font**: {F[0]}.{F[1]} ({A['WELCOME_FONT_SIZE']}pt font)\n**Username Font**: {D[0]}.{D[1]} ({A['NAME_FONT_LG']}/{A['NAME_FONT_MED']}/{A['NAME_FONT_SM']}/{A['NAME_FONT_XSM']}pt font)\n**Member Position Font**: {E[0]}.{E[1]} ({A['SERVER_FONT_SIZE']}pt font)\n";H=discord.Embed(colour=await B.embed_colour(),description=G);await B.send(embed=H)
 	@staticmethod
 	async def _font_file(fontpath):'Return font names for the imgwelcome group command.';D='.';A=fontpath;B=A.split('/')[-1].split(D)[0];C=A.rsplit(D,1)[1];return B,C
 	@imgwelcome_font.command(name='reset')
 	@checks.mod_or_permissions(administrator=_A)
 	async def fontg_reset(self,ctx):
 		'Reset the fonts used and the font size back to default settings.\n           This command will not reset colors.';B=self
-		async with B.config.guild(ctx.guild).all()as A:A[_E]=f"{B.datapath}/fonts/UniSansHeavy.otf";A[_F]=30;A[_G]=22;A[_H]=18;A[_I]=12;A[_J]=f"{B.datapath}/fonts/UniSansHeavy.otf";A[_K]=20;A[_L]=f"{B.datapath}/fonts/UniSansHeavy.otf";A[_M]=50;await ctx.send('Default font and font sizes set.')
+		async with B.config.guild(ctx.guild).all()as A:A[_E]=f"{B.imgpath}/fonts/UniSansHeavy.otf";A[_F]=30;A[_G]=22;A[_H]=18;A[_I]=12;A[_J]=f"{B.imgpath}/fonts/UniSansHeavy.otf";A[_K]=20;A[_L]=f"{B.imgpath}/fonts/UniSansHeavy.otf";A[_M]=50;await ctx.send('Default font and font sizes set.')
 	@imgwelcome_font.command(name='list')
 	@checks.mod_or_permissions(administrator=_A)
 	async def fontg_list(self,ctx):
