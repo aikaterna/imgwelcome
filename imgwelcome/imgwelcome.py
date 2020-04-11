@@ -103,7 +103,7 @@ class ImgWelcome(commands.Cog):
 	@checks.mod_or_permissions(administrator=_A)
 	async def imgwelcome_profilesize(self,ctx,profilesize:int):
 		'Set the profile size in pixels. Use one number, 128 is recommended.';B=profilesize;A=ctx
-		if B is 0:await A.send('Profile picture size must be larger than 0.');return
+		if B == 0:await A.send('Profile picture size must be larger than 0.');return
 		else:await self.config.guild(A.guild).CIRCLE.set([B,B]);await A.send('The profile picture size has been set.')
 	@imgwelcome.command(name='text')
 	@checks.mod_or_permissions(administrator=_A)
