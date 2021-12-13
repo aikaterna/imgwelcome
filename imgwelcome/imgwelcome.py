@@ -42,7 +42,7 @@ class ImgWelcome(M.Cog):
 	def cog_unload(A):A.bot.loop.create_task(A.session.close())
 	async def _create_welcome(O,member,test_member_number:I=E):
 		AR='of ';AQ='Welcome';q=test_member_number;K=member;C=await O.config.guild(K.guild).all();AD=C[g];AE=C[h];AF=C[e];AG=C[f];T=C[Z];AH=C[a];AI=C[b];AJ=C[c];AK=C[d];r=G.truetype(AD,AE);U=G.truetype(AF,AG);s=G.truetype(T,AH);t=G.truetype(T,AI);u=G.truetype(T,AJ);v=G.truetype(T,AK);w=F.open(C[A7]).convert(S);AL=F.open(O.imgpath+'/noimage.png');L=F.new(S,(500,150));L=n.fit(w,(500,150),centering=(0.5,0.5));L.paste(w);L=L.resize((500,150),F.NEAREST);V=F.new('L',(512,512),0);AM=R.Draw(V);AM.ellipse(((0,0),(512,512)),fill=255);i=J(C[A9]);V=V.resize(i,F.ANTIALIAS)
-		try:P=m();await K.avatar_url.save(P,seek_begin=A);P=F.open(P).convert(S)
+		try:P=m();await K.avatar_url_as(format="png").save(P,seek_begin=A);P=F.open(P).convert(S)
 		except A4 as AS:o.error('ImgWelcome error in create_welcome:\n',exc_info=A);P=AL
 		j=n.fit(P,i,centering=(0,0));j.putalpha(V);k=J(C[A8]);W=J(C[p]);x=J(C[AB])
 		try:y=J(C[AC])
